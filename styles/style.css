@@ -1,3 +1,53 @@
+
+body{
+align-items: center;
+position: absolute;
+background-color: #34ebbd;
+
+}
 #mainMapCalendar{
-  background-color: #7ee3f7;
+  background-color: #b29edb;
+  float: left;
+  height: 100%;
+  width: 500px;
+  text-align: center;
+  align-content: space-between;
+}
+#welcome{
+  float: right;
+  background-color: #34ebbd;
+  width: auto;
+  align-content: center;
+  width: 60%;
+  height: 400px;
+  margin: auto;
+}
+.logo{
+  width: 70%;
+  height: 350px;
+  margin: 30px;
+  float: center;
+}
+#calendar{
+  margin-top: 55px;
+  align-content: space-between;
+  padding-top: 30%;
+  height: 200px;
+
+}
+#map{
+  margin: auto;
+  align-content: space-between;
+  padding-bottom: 30%;
+  height: 200px;
+}
+.buttons{
+  margin: 50px;
+  padding: auto;
+  height: 30px;
+  width: 50px;
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  text-align: center;
 }

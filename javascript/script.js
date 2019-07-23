@@ -1,4 +1,4 @@
-/*      DECLARING GLOBALS       */
+ /*      DECLARING GLOBALS       */
 var map;
 var geocoder;
 var marker1;
@@ -70,6 +70,7 @@ function initMap() {
 function reverseGeocode(address) {
 
 }
+
 
 
 

@@ -3,7 +3,7 @@ body{
 align-items: center;
 position: absolute;
 background-color: #34ebbd;
-
+width: auto;
 }
 #mainMapCalendar{
   background-color: #b29edb;
@@ -13,6 +13,8 @@ background-color: #34ebbd;
   text-align: center;
   align-content: space-between;
   border-radius: 30px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 #welcome{
   float: right;
@@ -36,7 +38,6 @@ background-color: #34ebbd;
   align-content: space-between;
   padding-top: 30%;
   height: 200px;
-
 }
 #map{
   margin: auto;
@@ -59,6 +60,6 @@ background-color: #34ebbd;
   width: 100px;
   color: white;
   background-color: black;
-  border-radius: 5px;
+  border-radius: 15px;
   text-align: center;
 }

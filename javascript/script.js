@@ -2,7 +2,16 @@
 var map;
 var geocoder;
 var marker1;
+var curpos;
 
+var temp = 0;
+
+let api_key = "AIzaSyAtJor4eSuw3Wt8fLLYCfRrdK_AvAaQxHs";
+
+
+var placeService;
+
+let places = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=" + api_key + "&radius=";
 
 //Takes a human readable address and an index returns the goecoded LatLng of the result[index] or LatLng(0,0) if failed
 function getLatLng(address, result_index = 0) {
@@ -24,6 +33,7 @@ function getLatLng(address, result_index = 0) {
 //initialize the map with a position on page load
 function initMap() {
   geocoder = new google.maps.Geocoder();
+
   //Initializing map on first run
   geocoder.geocode({'address': "2100 Whitman Ln"}, function(results, status) {
       if(status == 'OK') {
@@ -33,7 +43,7 @@ function initMap() {
           zoom: 18,
           center: center
         });
-
+        placeService = new google.maps.places.PlacesService(map);
         marker1 = new google.maps.Marker({
           position: center,
           map: map
@@ -44,10 +54,9 @@ function initMap() {
       }
   });
 
-
+  //When find addres is clicked, change marker and center position on map
   $("#find").click(function() {
       let newPosition = $("#address").val();
-      var newLatLng;
 
       geocoder.geocode({'address': newPosition}, function(results, status) {
           if(status == 'OK') {
@@ -62,13 +71,50 @@ function initMap() {
   });
 
 
+  $("#scan").click(function() {
+      temp = $("#radius").val();
+      let filter = $('#filter').val();
+      //Radius in Km
+      var distance = parseInt(temp) * 1000;
+      console.log(distance);
+      // $.ajax({
+      //     url: scanSetup(marker1.getPosition(), distance),
+      //     type: 'GET',
+      //     dataType: 'jsonp',
+      //     success: function(response) {
+      //       let json = response;
+      //       console.log(json['results'][0]);
+      //     }
+      // });
+      var search = {
+          location: marker1.getPosition(),
+          radius: ""+distance,
+          query: filter
+        };
+
+        placeService.textSearch(search, function(results, status) {
+          if (status == google.maps.places.PlacesServiceStatus.OK) {
+            console.log(results);
+            //Clear the div
+            //$('#search_results').val("");
+              for (var i = 0; i < results.length; i++) {
+                var place = results[i];
+                //createMarker(results[i]);
+                $('#search_results').append("<p>" + results[i].formatted_address + "</p>");
+              }
+            }
+        });
+  });
+
+
 }
 
 
 
-//The process of turning an address into a Lat, lng notatino
-function reverseGeocode(address) {
-
+function scanSetup(LatLng, radius) {
+    var response = places + radius + "&location=" + (""+LatLng).replace("(", "").replace(")", "").replace(" ", "");
+    console.log(response);
+    return response;
 }
 
 

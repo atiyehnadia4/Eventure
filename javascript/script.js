@@ -96,7 +96,7 @@ function initMap() {
           if (status == google.maps.places.PlacesServiceStatus.OK) {
             console.log(results);
             //Clear the div
-            //$('#search_results').val("");
+            $('#search_results').empty();
               for (var i = 0; i < results.length; i++) {
                 var place = results[i];
                 //createMarker(results[i]);

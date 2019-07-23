@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
   <head>
-    <title>Map</title>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="../javascript/script.js"></script>
-    <link href="../styles/style.css" rel="stylesheet">
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAsy2vc6rhsBOXVjPtQXc04tLBjDx0nyDM&libraries=places"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script type="text/javascript" src="/scripts/script.js"></script>
+    <title>Eventure Travels</title>
   </head>
-  <body>
+  <body onload="initMap()">
+    <div id="map" style="height: 600px; width=100%;"></div>
+
+    <input type="text" id="address" placeholder="Type an address">
+    <button id="find">Go to address</button>
 
   </body>
 </html>

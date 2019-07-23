@@ -17,9 +17,13 @@
     </section>
     <section id="welcome">
       <div id="buttonDiv">
-        <button value="login" class="buttons">Login</button>
-        <button value="addTrip" class="buttons">Add a trip!</button><br>
-      </div>
+      <form method="get" action="/login">
+        <input type="submit" value="Login" class="buttons">
+      </form>
+      <form method="get" action="/usermanagement">
+        <input type="submit" value="Add a Trip" class="buttons"><br>
+      </form>
+    </div>
       <img src= "../images/Logo.png" alt="Eventure Travel" class="logo"><br>
     </section>
   </body>

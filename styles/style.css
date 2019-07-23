@@ -46,7 +46,6 @@ width: auto;
   height: 200px;
 }
 #buttonDiv{
-  align-content: space-between;
   width: 600px;
   height: auto;
   float: right;
@@ -62,4 +61,5 @@ width: auto;
   background-color: black;
   border-radius: 15px;
   text-align: center;
+  float: left;
 }

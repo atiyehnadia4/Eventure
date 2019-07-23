@@ -1,4 +1,4 @@
-/*      DECLARING GLOBALS       */
+ /*      DECLARING GLOBALS       */
 var map;
 var geocoder;
 var marker1;
@@ -116,6 +116,7 @@ function scanSetup(LatLng, radius) {
     console.log(response);
     return response;
 }
+
 
 
 

@@ -3,6 +3,7 @@ import jinja2
 import os
 import json
 from google.appengine.api import users
+# from google.appengine.api import ndb
 
 
 the_jinja_env = jinja2.Environment(
@@ -19,11 +20,16 @@ class LoginHandler(webapp2.RequestHandler):
     def get(self):
         login_template = the_jinja_env.get_template("template/login.html")
         self.response.write(login_template.render())
+    def post(self):
+        pass
 
 class UserManagementHandler(webapp2.RequestHandler):
     def get(self):
         user_template = the_jinja_env.get_template("template/user.html")
         self.response.write(user_template.render())
+    def post(self):
+        pass
+
 
 class ParameterHandler(webapp2.RequestHandler):
     def get(self):

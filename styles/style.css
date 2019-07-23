@@ -12,6 +12,7 @@ background-color: #34ebbd;
   width: 500px;
   text-align: center;
   align-content: space-between;
+  border-radius: 30px;
 }
 #welcome{
   float: right;
@@ -25,8 +26,10 @@ background-color: #34ebbd;
 .logo{
   width: 70%;
   height: 350px;
-  margin: 30px;
+  margin: 50px;
   float: center;
+  border-radius: 200px;
+  margin-top: 80px;
 }
 #calendar{
   margin-top: 55px;
@@ -41,11 +44,19 @@ background-color: #34ebbd;
   padding-bottom: 30%;
   height: 200px;
 }
+#buttonDiv{
+  align-content: space-between;
+  width: 600px;
+  height: auto;
+  float: right;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 100px;
+}
 .buttons{
   margin: 50px;
-  padding: auto;
   height: 30px;
-  width: 50px;
+  width: 100px;
   color: white;
   background-color: black;
   border-radius: 5px;

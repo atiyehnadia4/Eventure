@@ -6,7 +6,7 @@ width: auto;
 #welcome{
   float: center;
   position: fixed;
-  background-image: linear-gradient(blue,green);
+  background-color:#2A8EBF
   width: auto;
   align-content: center;
   max-width: 60%;
@@ -100,11 +100,10 @@ width: auto;
   height: 250px;
   margin: 50px;
   display:flex;
-  align-items: center;
-
-
+  align-self: stretch;
   border-radius: 200px;
   margin-top: 80px;
+  display: block;
 }
 
 .start{

@@ -1,5 +1,5 @@
 body{
-background-color: #2A8EBF;
+background-color: #387975;
 width: auto;
 }
 
@@ -99,7 +99,7 @@ width: auto;
 
 .logo{
   max-width: 60%;
-  height: 250px;
+  height: 400px;
   display:flex;
   align-self: stretch;
   border-radius: 200px;

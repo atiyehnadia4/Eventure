@@ -1,23 +1,12 @@
-
 body{
-align-items: center;
-background-color: #34ebbd;
+background-color: #2A8EBF;
 width: auto;
 }
-#mainMapCalendar{
-  background-color: #b29edb;
-  float: left;
-  height: 100%;
-  width: 30%;
-  text-align: center;
-  align-content: space-between;
-  border-radius: 30px;
-  margin-left: 20px;
-  margin-top: 20px;
-}
+
 #welcome{
   float: center;
-  background-color: #34ebbd;
+  position: fixed;
+  background-image: linear-gradient(blue,green);
   width: auto;
   align-content: center;
   max-width: 60%;
@@ -26,53 +15,105 @@ width: auto;
   margin: auto;
   margin-right: 0;
 }
+/* MAIN MENU STUFF */
+.container {
+  display: inline-block;
+  cursor: pointer;
+  padding-left: 30px;
+  padding-top: 5px;
+}
+
+.bar1,.bar2,.bar3{
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+
+
+}
+
+/* .change .bar1{
+  -webkit-transform: rotate(-45deg) translate(-9px,6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2{
+  opacity: 0;
+}
+
+.change .bar3{
+  -webkit-transform: rotate(45deg) translate(-8px,-8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+} */
+
+.sidenav{
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+
+}
+.sidenav a{
+  padding: 8px 8px 8px 32px;
+  font-family: 'Darker Grotesque', sans-serif;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+
+}
+
+.sidenav a:hover{
+  color: #f1f1f1;
+
+}
+
+.sidenav .closebtn{
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left . 5s;
+  padding: 20px;
+}
+
+@media screen and (max-heigh: 450px){
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+/* Menu STUFF */
+
 .logo{
   max-width: 60%;
-  height: 350px;
+  height: 250px;
   margin: 50px;
-  float: right;
+  display:flex;
+  align-items: center;
+
+
   border-radius: 200px;
   margin-top: 80px;
 }
-#calendar{
-  margin-top: 55px;
-  align-content: space-between;
-  padding-top: 30%;
-  height: 200px;
-  font-size: 20px;
+
+.start{
+  background-color: #5079C7
 }
-#map{
-  margin: auto;
-  align-content: space-between;
-  padding-bottom: 30%;
-  height: 200px;
-  font-size: 20px;
-}
+
 a{
   text-decoration: none;
 }
 a:hover{
   color: white;
   font-weight: bold;
-}
-#buttonDiv{
-  width: 60%;
-  height: auto;
-  float: right;
-  margin-left: 200px;
-  margin-right: 200px;
-  margin-top: 100px;
-}
-.buttons{
-  margin-left: 0px;
-  margin-right: 50px;
-  margin-top: 100px;
-  height: 30px;
-  min-width: 100px;
-  color: white;
-  background-color: black;
-  border-radius: 15px;
-  text-align: center;
-  float: right;
-  font-size: 14px;
-}

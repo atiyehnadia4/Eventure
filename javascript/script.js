@@ -5,9 +5,12 @@ var marker1;
 var curpos;
 var curPlace;
 
+var pano;
+
 var temp = 0;
 
 let api_key = "AIzaSyAtJor4eSuw3Wt8fLLYCfRrdK_AvAaQxHs";
+
 
 
 var placeService;
@@ -18,6 +21,8 @@ let places = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key="
 
 var destinations = [];
 var markerList = [];
+var searcharea = new google.maps.Circle();
+
 
 class Place {
   name;
@@ -53,7 +58,7 @@ function initMap() {
   geocoder = new google.maps.Geocoder();
 
   //Initializing map on first run
-  geocoder.geocode({'address': "2100 Whitman Ln"}, function(results, status) {
+  geocoder.geocode({'address': "2100 Whitman Ln Seattle"}, function(results, status) {
       if(status == 'OK') {
         console.log("Geocode successful: " + results[0].geometry.location);
         var center = results[0].geometry.location;
@@ -97,20 +102,18 @@ function initMap() {
       //Radius in Km
       var distance = parseInt(temp) * 1000;
       console.log(distance);
-      // $.ajax({
-      //     url: scanSetup(marker1.getPosition(), distance),
-      //     type: 'GET',
-      //     dataType: 'jsonp',
-      //     success: function(response) {
-      //       let json = response;
-      //       console.log(json['results'][0]);
-      //     }
-      // });
+
       var search = {
           location: marker1.getPosition(),
-          radius: ""+distance,
-          query: filter
+          radius: distance,
+          query: filter,
+          type: filter
         };
+
+        searcharea.setMap(map);
+        searcharea.setRadius(distance);
+        searcharea.setCenter(marker1.getPosition());
+        searcharea.setVisible(true);
 
         placeService.textSearch(search, function(results, status) {
           if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -121,8 +124,8 @@ function initMap() {
               for (var i = 0; i < results.length; i++) {
                 var place = new Place(results[i]);
                 destinations.push(place);
-                $('#search_results').append("<p>" + results[i].name + "</p>");
-                placeMarker(results[i].geometry.location);
+                //$('#search_results').append("<p>" + results[i].name + "</p>");
+                placeMarker(results[i].geometry.location, place);
 
               }
 
@@ -141,19 +144,28 @@ function clearMarkers() {
   markerList.length = 0;
 }
 
-function placeMarker(position) {
+function placeMarker(position, place) {
 
   let marker = new google.maps.Marker({
     position: position,
-    map: map
+    map: map,
   });
 
   marker.addListener('click', function() {
-          map.setZoom(8);
-          map.setCenter(marker.getPosition());
-        });
+      // pano = map.getStreetView();
+      // pano.setPosition(marker.getPosition());
+      // pano.setPov(({
+      //   heading: 0,
+      //   pitch: 0
+      // }));
+      // pano.setVisible(true);
 
-  markerList.push(marker)
+      curPlace = place;
+      map.setCenter(marker.getPosition());
+      $('#currPos').empty();
+      $("#currPos").append("<h2>" + place.name + "</h2>");
+  });
+  markerList.push(marker);
 }
 
 

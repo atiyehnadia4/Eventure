@@ -8,14 +8,39 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtJor4eSuw3Wt8fLLYCfRrdK_AvAaQxHs&libraries=places"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script type="text/javascript" src="/javascript/script.js"></script>
+    <script src="/javascript/script2.js"></script>
+    <link href="/styles/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Eventure Travels</title>
   </head>
   <body onload="initMap()">
-    <div id="map" style="height: 600px; width=100%;"></div>
+    <!-- Nav bar -->
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/login">Login</a>
+            <a href="/usermanagement">Add a Trip</a>
+            <a href="/calendar">Calendar</a>
+            <a href="/map">Map</a>
+          </div>
 
-    <form method="get" action="/">
-      <input type="submit" value="Back to Home Page">
-    </form>
+          <span onclick="openNav()">
+            <div class ="container" onclick = "myFunction(this)">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+            </div>
+            <div>
+
+          </div>
+          </span>
+      <!-- Nav Bar -->
+      <div id="main">
+
+
+    <div id="map" style="height: 800px; width=100%;"></div>
+
+
     <input type="text" id="address" placeholder="Type an address">
     <input type="text" id="filter" placeholder="Search Filter">
     <input type="number" id="radius" value="40">
@@ -28,6 +53,6 @@
     <div id="currPos">
 
     </div>
-
+  </div>
   </body>
 </html>

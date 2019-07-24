@@ -112,7 +112,7 @@ function initMap() {
           query: filter
         };
 
-        placeService.nearbySearch(search, function(results, status) {
+        placeService.textSearch(search, function(results, status) {
           if (status == google.maps.places.PlacesServiceStatus.OK) {
             console.log(results);
             //Clear the div
@@ -166,7 +166,7 @@ function scanSetup(LatLng, radius) {
 
 
 function reverseGeocode(latlng) {
-  
+
 
 }
 

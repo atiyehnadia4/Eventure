@@ -11,6 +11,7 @@ the_jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         login_url= users.create_login_url("/")

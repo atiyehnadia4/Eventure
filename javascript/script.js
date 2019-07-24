@@ -3,7 +3,7 @@ var map;
 var geocoder;
 var marker1;
 var curpos;
-var curPlace;
+var currPlace;
 
 var pano;
 
@@ -152,18 +152,20 @@ function placeMarker(position, place) {
   });
 
   marker.addListener('click', function() {
-      // pano = map.getStreetView();
-      // pano.setPosition(marker.getPosition());
-      // pano.setPov(({
-      //   heading: 0,
-      //   pitch: 0
-      // }));
-      // pano.setVisible(true);
-
-      curPlace = place;
-      map.setCenter(marker.getPosition());
+      if(currPlace == place) {
+        pano = map.getStreetView();
+        pano.setPosition(marker.getPosition());
+        pano.setPov(({
+          heading: 0,
+          pitch: 0
+        }));
+        pano.setVisible(true);
+      } else {
+        currPlace = place;
+        map.setCenter(marker.getPosition());
+      }
       $('#currPos').empty();
-      $("#currPos").append("<h2>" + place.name + "</h2>");
+      $("#currPos").append("<h2 >" + place.name + "</h2>");
   });
   markerList.push(marker);
 }

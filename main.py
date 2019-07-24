@@ -13,13 +13,18 @@ the_jinja_env = jinja2.Environment(
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        main_template = the_jinja_env.get_template("template/main.html")
-        self.response.write(main_template.render())
+        login_url= users.create_login_url("/")
+        user = users.get_current_user()
+        if user:
+            main_template = the_jinja_env.get_template("template/main.html")
+            self.response.write(main_template.render())
+        else:
+            self.redirect("/login")
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
-        login_template = the_jinja_env.get_template("template/login.html")
-        self.response.write(login_template.render())
+        login_url= users.create_login_url("/")
+        self.redirect(login_url)
     def post(self):
         pass
 

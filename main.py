@@ -36,7 +36,6 @@ class UserManagementHandler(webapp2.RequestHandler):
     def post(self):
         pass
 
-
 class ParameterHandler(webapp2.RequestHandler):
     def get(self):
         parameter_template = the_jinja_env.get_template("template/parameters.html")

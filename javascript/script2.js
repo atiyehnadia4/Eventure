@@ -1,3 +1,4 @@
+// main.html JAVASCRIPT
 function myFunction(x){
   x.classList.toggle("change");
 }
@@ -13,3 +14,5 @@ function closeNav (){
   document.getElementById("main").style.marginLeft = "0";
 
 }
+
+// user.html JAVASCRIPT

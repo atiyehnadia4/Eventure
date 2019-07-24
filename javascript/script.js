@@ -62,6 +62,7 @@ function initMap() {
       if(status == 'OK') {
         console.log("Geocode successful: " + results[0].geometry.location);
         var center = results[0].geometry.location;
+        var place = new Place(results[0]);
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
           center: center
@@ -72,6 +73,23 @@ function initMap() {
         marker1 = new google.maps.Marker({
           position: center,
           map: map
+        });
+
+        marker1.addListener('click', function() {
+            if(currPlace == place) {
+              pano = map.getStreetView();
+              pano.setPosition(marker.getPosition());
+              pano.setPov(({
+                heading: 0,
+                pitch: 0
+              }));
+              pano.setVisible(true);
+            } else {
+              currPlace = place;
+              map.setCenter(marker.getPosition());
+            }
+            $('#currPos').empty();
+            $("#currPos").append("<h2 >" + place.name + "</h2>");
         });
 
       } else {

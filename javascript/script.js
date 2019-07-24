@@ -3,6 +3,7 @@ var map;
 var geocoder;
 var marker1;
 var curpos;
+var curPlace;
 
 var temp = 0;
 
@@ -12,6 +13,23 @@ let api_key = "AIzaSyAtJor4eSuw3Wt8fLLYCfRrdK_AvAaQxHs";
 var placeService;
 
 let places = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=" + api_key + "&radius=";
+
+
+
+var destinations = [];
+var markerList = [];
+
+class Place {
+  name;
+  address;
+  types = [];
+  constructor(json) {
+    this.name = json.name;
+    this.address = json.formatted_address;
+    this.tags = json.tags;
+  }
+}
+
 
 //Takes a human readable address and an index returns the goecoded LatLng of the result[index] or LatLng(0,0) if failed
 function getLatLng(address, result_index = 0) {
@@ -44,6 +62,8 @@ function initMap() {
           center: center
         });
         placeService = new google.maps.places.PlacesService(map);
+
+
         marker1 = new google.maps.Marker({
           position: center,
           map: map
@@ -92,16 +112,21 @@ function initMap() {
           query: filter
         };
 
-        placeService.textSearch(search, function(results, status) {
+        placeService.nearbySearch(search, function(results, status) {
           if (status == google.maps.places.PlacesServiceStatus.OK) {
             console.log(results);
             //Clear the div
             $('#search_results').empty();
+            clearMarkers();
               for (var i = 0; i < results.length; i++) {
-                var place = results[i];
-                //createMarker(results[i]);
-                $('#search_results').append("<p>" + results[i].formatted_address + "</p>");
+                var place = new Place(results[i]);
+                destinations.push(place);
+                $('#search_results').append("<p>" + results[i].name + "</p>");
+                placeMarker(results[i].geometry.location);
+
               }
+
+              //console.log(destinations[5].name);
             }
         });
   });
@@ -109,6 +134,27 @@ function initMap() {
 
 }
 
+function clearMarkers() {
+  for(var i = 0; i < markerList.length; i++) {
+    markerList[i].setMap(null);
+  }
+  markerList.length = 0;
+}
+
+function placeMarker(position) {
+
+  let marker = new google.maps.Marker({
+    position: position,
+    map: map
+  });
+
+  marker.addListener('click', function() {
+          map.setZoom(8);
+          map.setCenter(marker.getPosition());
+        });
+
+  markerList.push(marker)
+}
 
 
 function scanSetup(LatLng, radius) {
@@ -119,7 +165,10 @@ function scanSetup(LatLng, radius) {
 
 
 
+function reverseGeocode(latlng) {
+  
 
+}
 
 
 //$(document).ready(initMap);

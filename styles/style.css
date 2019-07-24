@@ -98,12 +98,13 @@ width: auto;
 .logo{
   max-width: 60%;
   height: 250px;
-  margin: 50px;
   display:flex;
   align-self: stretch;
   border-radius: 200px;
   margin-top: 80px;
   display: block;
+  margin: auto;
+  margin-bottom: 80px;
 }
 
 .start{

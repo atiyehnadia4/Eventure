@@ -173,6 +173,10 @@ a:hover{
   width; 50px;
   align-items: center;
 }
-
+.eventurer{
+  float: left;
+  margin-left: 0;
+  margin-right: 70px;
+}
 
 /* FORM STUFF */

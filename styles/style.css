@@ -89,6 +89,7 @@ font-family: 'Darker Grotesque', sans-serif;
   text-align: center;
   font-family: 'Darker Grotesque', sans-serif;
    border-radius: 25px;
+  font-size: 40pt;
 }
 a{
   text-decoration: none;
@@ -166,4 +167,5 @@ a:hover{
   width; 50px;
   align-items: center;
 }
+
 /* FORM STUFF */

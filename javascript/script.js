@@ -25,14 +25,39 @@ var markerList = [];
 var searcharea = new google.maps.Circle();
 
 
+function calcDist(p1, p2) {
+  var R = 6371e3; // radius of earth in metres
+  var φ1 = degToRad(p1.lat());
+  var φ2 = degToRad(p2.lat());
+  var Δφ = degToRad((p2.lat()-p1.lat()));
+  var Δλ = degToRad((p2.lng()-p1.lng()));
+
+  var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+        Math.cos(φ1) * Math.cos(φ2) *
+        Math.sin(Δλ/2) * Math.sin(Δλ/2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+  var dist = R * c;
+
+  return parseInt(dist);
+}
+
+function degToRad(degrees)
+{
+  var pi = Math.PI;
+  return degrees * (pi/180);
+}
+
 class Place {
   name;
   address;
   types = [];
+  location;
   constructor(json) {
     this.name = json.name;
     this.address = json.formatted_address;
     this.tags = json.tags;
+    this.location = json.geometry.location;
   }
 }
 
@@ -80,6 +105,7 @@ function initMap() {
             fontSize: '19px'
           },
         });
+        marker1.setZIndex(100);
         marker1.setDraggable(true);
       } else {
         console.log("Error: geocode failed!");
@@ -105,28 +131,29 @@ function initMap() {
 
       marker1.addListener('dragend', function() {
         geocoder.geocode({'location': marker1.getPosition()}, function(revResults, revStatus) {
-          if(revStatus != "OK") return;
-          console.log(revResults[0].formatted_address);
-          var search = {
-              location: revResults[0].geometry.location,
-              radius: 100000,
-              query: revResults[0].formatted_address,
-              type: revResults[0].formatted_address
-            };
-          placeService.textSearch(search, function(results, status) {
-            if(status != google.maps.places.PlacesServiceStatus.OK) return;
-            console.log(results);
-            homePlace = results[0];
+          if(revStatus == "OK") {
+            console.log(revResults[0].formatted_address);
+            var search = {
+                location: revResults[0].geometry.location,
+                radius: 100000,
+                query: revResults[0].formatted_address,
+                type: revResults[0].formatted_address
+              };
+            placeService.textSearch(search, function(results, status) {
+              if(status == google.maps.places.PlacesServiceStatus.OK) {
+                console.log(results);
+                homePlace = results[0];
 
-            // if(homePlace.name === 'undefined') {
-            //   homePlace.name = homePlace.address;
-            // }
+                // if(homePlace.name === 'undefined') {
+                //   homePlace.name = homePlace.address;
+                // }
 
 
-            $('#currPos').empty();
-            $("#currPos").append("<h2 >" + homePlace.name + "</h2>");
-
-          });
+                $('#currPos').empty();
+                $("#currPos").append("<h2 >" + homePlace.name + "</h2>");
+              }
+            });
+          }
         });
       });
 
@@ -153,7 +180,7 @@ function initMap() {
       temp = $("#radius").val();
       let filter = $('#filter').val();
       //Radius in Km
-      var distance = parseInt(temp) * 1000;
+      var distance = parseFloat(temp) * 1000;
       console.log(distance);
 
       var search = {
@@ -176,8 +203,11 @@ function initMap() {
             clearMarkers();
               for (var i = 0; i < results.length; i++) {
                 var place = new Place(results[i]);
+                console.log("Dist from Home to " + place.name + " is: " + calcDist(homePlace.location, place.location) + "m");
+                if( $('#fixRad').is(':checked') && calcDist(homePlace.location, place.location) > distance) {
+                  continue;
+                }
                 destinations.push(place);
-                //$('#search_results').append("<p>" + results[i].name + "</p>");
                 placeMarker(results[i].geometry.location, place);
 
               }
@@ -219,10 +249,11 @@ function placeMarker(position, place) {
           markerList[i].setAnimation(null);
         }
 
+        marker.setAnimation(google.maps.Animation.BOUNCE);
         currPlace = place;
         map.panTo(marker.getPosition());
       }
-      marker.setAnimation(google.maps.Animation.BOUNCE);
+
       $('#currPos').empty();
       $("#currPos").append("<h2 >" + place.name + "</h2>");
   });

@@ -3,7 +3,7 @@
   <head>
     <title>User Management</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="/javascript/script.js"></script>
+      <script src="/javascript/parameters_scripts.js"></script>
     <script src="/javascript/script2.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap" rel="stylesheet">
 
@@ -30,26 +30,26 @@
 
 <section>
   <br>
+  <br>
       <div id="main">
         <header class='speaker-form-header'>
         <h1> Plan your Trip! </h1>
-        <p id="">Enter your Destination! | Select what you want to do! | Enter the max amount of km you want to travel! </p>
 
         </header>
-        <form action= '/events' method='get' class ='speaker-form'>
+        <form action= '/parameters' method='get' class ='speaker-form'>
           <div class="form-row">
             <label for= "Destination"> Destination: <br></label>
-            <input id='destination' name='destination' type='text'/>
+            <input id='destination' name='destination'placeholder="Enter your Destination" type='text'required/>
             <br>
             <label for="Filter"> What do you want to do! <br></label>
-            <input id='filter' name='filter'type="text"/>
+            <input id='filter' name='filter' placeholder= "Enter what you want to do" type="text" required/>
             <br>
             <div class="buttonandradius">
             <label for="Radius"> Radius: <br></label>
-            <input id='radius' name='radius' type='number'/>
+            <input id='radius' name='radius' placeholder="km" type='number' required/>
             <br>
             <br>
-            <button id='submit'> Go to Events!</button>
+            <button type='submit' id="parameters">Choose your Parameters!</button>
           </div>
 
           </div>

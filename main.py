@@ -65,4 +65,4 @@ app = webapp2.WSGIApplication([
     ("/events",EventsHandler),
     ("/calendar", CalendarHandler),
     ("/map", MapHandler),
-], debug=True)
+], debug=True

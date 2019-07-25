@@ -29,7 +29,6 @@ class LoginHandler(webapp2.RequestHandler):
         login_url= users.create_login_url("/")
         user = users.get_current_user()
         self.redirect(login_url)
-
     def post(self):
         pass
 
@@ -37,6 +36,9 @@ class UserManagementHandler(webapp2.RequestHandler):
     def get(self):
         user_template = the_jinja_env.get_template("template/user.html")
         self.response.write(user_template.render())
+
+        # Destination
+
     def post(self):
         pass
 

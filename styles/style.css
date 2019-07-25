@@ -174,9 +174,13 @@ a:hover{
   align-items: center;
 }
 .eventurer{
+  position: absolute;
+  left: 0;
   float: left;
-  margin-left: 0;
+  margin-left: 80px;
   margin-right: 70px;
+  margin-bottom: 60px;
+  padding-right: 200px;
 }
 
 /* FORM STUFF */

@@ -2,6 +2,7 @@
 var map;
 var geocoder;
 var marker1;
+var homePlace;
 var curpos;
 var currPlace;
 
@@ -62,7 +63,7 @@ function initMap() {
       if(status == 'OK') {
         console.log("Geocode successful: " + results[0].geometry.location);
         var center = results[0].geometry.location;
-        var place = new Place(results[0]);
+        homePlace = new Place(results[0]);
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
           center: center
@@ -79,32 +80,56 @@ function initMap() {
             fontSize: '19px'
           },
         });
-
-        marker1.addListener('click', function() {
-            if(currPlace == place) {
-              pano = map.getStreetView();
-              pano.setPosition(marker1.getPosition());
-              pano.setPov(({
-                heading: 0,
-                pitch: 0
-              }));
-              pano.setVisible(true);
-            } else {
-              currPlace = place;
-              map.setCenter(marker1.getPosition());
-            }
-            $('#currPos').empty();
-            $("#currPos").append("<h2 >" + place.name + "</h2>");
-        });
-
-
-        marker1.addListener('drag', function() {
-            
-        });
-
+        marker1.setDraggable(true);
       } else {
         console.log("Error: geocode failed!");
       }
+
+      marker1.addListener('click', function() {
+          if(currPlace == homePlace) {
+            pano = map.getStreetView();
+            pano.setPosition(marker1.getPosition());
+            pano.setPov(({
+              heading: 0,
+              pitch: 0
+            }));
+            pano.setVisible(true);
+          } else {
+            currPlace = homePlace;
+            map.setCenter(marker1.getPosition());
+          }
+          $('#currPos').empty();
+          $("#currPos").append("<h2 >" + homePlace.name + "</h2>");
+      });
+
+
+      marker1.addListener('dragend', function() {
+        geocoder.geocode({'location': marker1.getPosition()}, function(revResults, revStatus) {
+          if(revStatus != "OK") return;
+          console.log(revResults[0].formatted_address);
+          var search = {
+              location: revResults[0].geometry.location,
+              radius: 100000,
+              query: revResults[0].formatted_address,
+              type: revResults[0].formatted_address
+            };
+          placeService.textSearch(search, function(results, status) {
+            if(status != google.maps.places.PlacesServiceStatus.OK) return;
+            console.log(results);
+            homePlace = results[0];
+
+            // if(homePlace.name === 'undefined') {
+            //   homePlace.name = homePlace.address;
+            // }
+
+
+            $('#currPos').empty();
+            $("#currPos").append("<h2 >" + homePlace.name + "</h2>");
+
+          });
+        });
+      });
+
   });
 
   //When find addres is clicked, change marker and center position on map

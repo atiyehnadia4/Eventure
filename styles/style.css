@@ -6,7 +6,7 @@ width: auto;
 #welcome{
   float: center;
   position: fixed;
-  background-color:#2A8EBF
+  background-color:#2A8EBF;
   width: auto;
   align-content: center;
   max-width: 60%;
@@ -110,9 +110,11 @@ width: auto;
 }
 
 .start{
-  background-color: #5079C7
+  background-color: #E5C6C9;
 }
-
+header{
+  background-color: #E5C6C9;
+}
 a{
   text-decoration: none;
 }

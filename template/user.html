@@ -4,12 +4,14 @@
     <title>User Management</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/javascript/script2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap" rel="stylesheet">
+
     <link href="/styles/style.css" rel="stylesheet">
   </head>
   <body>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href_"/"> Home </a>
+      <a href="/"> Home </a>
       <a href="/login">Login</a>
       <a href="/usermanagement">Add a Trip</a>
       <a href="/calendar">Calendar</a>
@@ -28,14 +30,16 @@
 
 
     </div>
-
+<section>
       <div id="main">
+  <br><br>
     <input type="text" id="address" placeholder="Type an address">
     <input type="text" id="filter" placeholder="Search Filter">
     <input type="number" id="radius" value="40">
     <button id="find">Go to address</button>
     <button id="scan">Search radius</button>
   </div>
+</section>
 
   </body>
 </html>

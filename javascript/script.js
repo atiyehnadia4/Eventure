@@ -128,6 +128,13 @@ function initMap() {
             }));
             pano.setVisible(true);
           } else {
+
+            for (var i = 0; i < markerList.length; i++) {
+              markerList[i].setAnimation(null);
+            }
+
+            marker1.setAnimation(google.maps.Animation.BOUNCE);
+
             currPlace = homePlace;
             map.setCenter(marker1.getPosition());
           }
@@ -252,6 +259,7 @@ function placeMarker(position, place) {
         }
 
         marker.setAnimation(google.maps.Animation.BOUNCE);
+        marker1.setAnimation(null);
         currPlace = place;
         map.panTo(marker.getPosition());
       }

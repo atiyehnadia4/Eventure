@@ -72,13 +72,18 @@ function initMap() {
 
         marker1 = new google.maps.Marker({
           position: center,
-          map: map
+          map: map,
+          label: {
+            fontFamily: "Material Icons",
+            text: "home",
+            fontSize: '19px'
+          },
         });
 
         marker1.addListener('click', function() {
             if(currPlace == place) {
               pano = map.getStreetView();
-              pano.setPosition(marker.getPosition());
+              pano.setPosition(marker1.getPosition());
               pano.setPov(({
                 heading: 0,
                 pitch: 0
@@ -86,10 +91,15 @@ function initMap() {
               pano.setVisible(true);
             } else {
               currPlace = place;
-              map.setCenter(marker.getPosition());
+              map.setCenter(marker1.getPosition());
             }
             $('#currPos').empty();
             $("#currPos").append("<h2 >" + place.name + "</h2>");
+        });
+
+
+        marker1.addListener('drag', function() {
+            
         });
 
       } else {
@@ -179,12 +189,19 @@ function placeMarker(position, place) {
         }));
         pano.setVisible(true);
       } else {
+
+        for (var i = 0; i < markerList.length; i++) {
+          markerList[i].setAnimation(null);
+        }
+
         currPlace = place;
-        map.setCenter(marker.getPosition());
+        map.panTo(marker.getPosition());
       }
+      marker.setAnimation(google.maps.Animation.BOUNCE);
       $('#currPos').empty();
       $("#currPos").append("<h2 >" + place.name + "</h2>");
   });
+
   markerList.push(marker);
 }
 

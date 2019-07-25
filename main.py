@@ -21,7 +21,7 @@ class MainHandler(webapp2.RequestHandler):
 
         main_template = the_jinja_env.get_template("template/main.html")
         self.response.write(main_template.render({
-        "nickname":  nickname
+        "nickname":  nickname.upper()
         }))
 class LoginHandler(webapp2.RequestHandler):
     def get(self):

@@ -105,10 +105,12 @@ a:hover{
   border: 1px solid #D6D9DC;
   border-radius: 25px;
   width: 80%;
-  margin: 40px 0;
+  margin: auto;
+  margin-bottom: 30px;
   padding: 50px;
   font-family: 'Darker Grotesque', sans-serif;
-  box-shadow: 5px 10px #F2A2D4;
+  box-shadow: 5px 10px #F2A2D4 ;
+
 
 }
 
@@ -126,7 +128,7 @@ a:hover{
 
   width: 80%;
   padding: 50px;
-  margin: 0 0 40px 0;
+  margin: auto;
 }
 
 .form-row {
@@ -155,4 +157,13 @@ a:hover{
   .speaker-form {
     width: 600px;
   }
+.buttonandradius input[type='number']{
+  width: 50px;
+
+}
+
+.buttonandradius button{
+  width; 50px;
+  align-items: center;
+}
 /* FORM STUFF */

@@ -33,14 +33,25 @@
       <div id="main">
         <header class='speaker-form-header'>
         <h1> Plan your Trip! </h1>
-        <p> Please enter your Destination </p>
-        <p> What you want to do. </p>
-        <P> The max amount of km you would want to travel </p>
+        <p id="">Enter your Destination! | Select what you want to do! | Enter the max amount of km you want to travel! </p>
+
         </header>
         <form action= '/events' method='get' class ='speaker-form'>
           <div class="form-row">
             <label for= "Destination"> Destination: <br></label>
             <input id='destination' name='destination' type='text'/>
+            <br>
+            <label for="Filter"> What do you want to do! <br></label>
+            <input id='filter' name='filter'type="text"/>
+            <br>
+            <div class="buttonandradius">
+            <label for="Radius"> Radius: <br></label>
+            <input id='radius' name='radius' type='number'/>
+            <br>
+            <br>
+            <button id='submit'> Go to Events!</button>
+          </div>
+
           </div>
         </form>
       </div>

@@ -15,9 +15,10 @@ the_jinja_env = jinja2.Environment(
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         user= users.get_current_user()
-        nickname= user
         if user:
             nickname=  user.nickname()
+        else:
+            nickname = "user"
 
         main_template = the_jinja_env.get_template("template/main.html")
         self.response.write(main_template.render({

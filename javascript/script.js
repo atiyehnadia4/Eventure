@@ -59,6 +59,13 @@ class Place {
     this.tags = json.tags;
     this.location = json.geometry.location;
   }
+
+  setPlace(newPlace) {
+    this.name = newPlace.name;
+    this.address = newPlace.formatted_address;
+    this.tags = newPlace.tags;
+    this.location = newPlace.geometry.location;
+  }
 }
 
 
@@ -142,12 +149,7 @@ function initMap() {
             placeService.textSearch(search, function(results, status) {
               if(status == google.maps.places.PlacesServiceStatus.OK) {
                 console.log(results);
-                homePlace = results[0];
-
-                // if(homePlace.name === 'undefined') {
-                //   homePlace.name = homePlace.address;
-                // }
-
+                homePlace.setPlace(results[0]);
 
                 $('#currPos').empty();
                 $("#currPos").append("<h2 >" + homePlace.name + "</h2>");

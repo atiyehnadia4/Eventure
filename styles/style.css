@@ -1,19 +1,7 @@
 body{
 background-color: #387975;
 width: auto;
-}
-
-#welcome{
-  float: center;
-  position: fixed;
-  background-color:#2A8EBF;
-  width: auto;
-  align-content: center;
-  max-width: 60%;
-  min-width: 20%;
-  height: 400px;
-  margin: auto;
-  margin-right: 0;
+font-family: 'Darker Grotesque', sans-serif;
 }
 /* MAIN MENU STUFF */
 .container {
@@ -31,23 +19,7 @@ width: auto;
   background-color: #333;
   margin: 6px 0;
   transition: 0.4s;
-
-
 }
-
-/* .change .bar1{
-  -webkit-transform: rotate(-45deg) translate(-9px,6px);
-  transform: rotate(-45deg) translate(-9px, 6px);
-}
-
-.change .bar2{
-  opacity: 0;
-}
-
-.change .bar3{
-  -webkit-transform: rotate(45deg) translate(-8px,-8px);
-  transform: rotate(45deg) translate(-8px, -8px);
-} */
 
 .sidenav{
   height: 100%;
@@ -96,7 +68,7 @@ width: auto;
   .sidenav a {font-size: 18px;}
 }
 /* Menu STUFF */
-
+/* Logo STUFF */
 .logo{
   max-width: 60%;
   height: 400px;
@@ -108,12 +80,15 @@ width: auto;
   margin: auto;
   margin-bottom: 80px;
 }
+/* Logo STUFF  */
 
-.start{
+
+
+.main-header{
   background-color: #E5C6C9;
-}
-header{
-  background-color: #E5C6C9;
+  text-align: center;
+  font-family: 'Darker Grotesque', sans-serif;
+   border-radius: 25px;
 }
 a{
   text-decoration: none;
@@ -121,3 +96,63 @@ a{
 a:hover{
   color: white;
   font-weight: bold;
+}
+/* FORM STUFF */
+
+.speaker-form-header {
+  text-align: center;
+  background-color: #E5C6C9;
+  border: 1px solid #D6D9DC;
+  border-radius: 25px;
+  width: 80%;
+  margin: 40px 0;
+  padding: 50px;
+  font-family: 'Darker Grotesque', sans-serif;
+  box-shadow: 5px 10px #F2A2D4;
+
+}
+
+.speaker-form-header h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.speaker-form {
+  background-color: #E5C6C9;
+  border: 1px solid #D6D9DC;
+  border-radius:25px;
+  font-family: 'Darker Grotesque', sans-serif;
+  box-shadow: 5px 10px #F2A2D4;
+
+  width: 80%;
+  padding: 50px;
+  margin: 0 0 40px 0;
+}
+
+.form-row {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+}
+
+.form-row input[type='text'] {
+  background-color: #FFFFFF;
+  border: 1px solid #D6D9DC;
+  border-radius: 3px;
+  width: 100%;
+  padding: 7px;
+  font-size: 14px;
+}
+
+.form-row label {
+  margin-bottom: 15px;
+}
+@media only screen and (min-width: 700px) {
+  .speaker-form-header,
+  .speaker-form {
+    width: 600px;
+  }
+/* FORM STUFF */

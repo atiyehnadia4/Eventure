@@ -3,12 +3,14 @@
   <head>
     <title>User Management</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="/javascript/script.js"></script>
     <script src="/javascript/script2.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap" rel="stylesheet">
 
     <link href="/styles/style.css" rel="stylesheet">
   </head>
   <body>
+    <section>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="/"> Home </a>
@@ -24,21 +26,24 @@
         <div class="bar2"></div>
         <div class="bar3"></div>
       </div>
-      <div>
-      </span>
+    </section>
 
-
-
-    </div>
 <section>
+  <br>
       <div id="main">
-  <br><br>
-    <input type="text" id="address" placeholder="Type an address">
-    <input type="text" id="filter" placeholder="Search Filter">
-    <input type="number" id="radius" value="40">
-    <button id="find">Go to address</button>
-    <button id="scan">Search radius</button>
-  </div>
+        <header class='speaker-form-header'>
+        <h1> Plan your Trip! </h1>
+        <p> Please enter your Destination </p>
+        <p> What you want to do. </p>
+        <P> The max amount of km you would want to travel </p>
+        </header>
+        <form action= '/events' method='get' class ='speaker-form'>
+          <div class="form-row">
+            <label for= "Destination"> Destination: <br></label>
+            <input id='destination' name='destination' type='text'/>
+          </div>
+        </form>
+      </div>
 </section>
 
   </body>

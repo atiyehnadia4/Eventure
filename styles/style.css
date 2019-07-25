@@ -81,6 +81,11 @@ border-radius: 25px;
   margin: auto;
   margin-bottom: 80px;
 }
+
+.logo2{
+  display: block;
+  align-items: flex-start;
+}
 /* Logo STUFF  */
 
 

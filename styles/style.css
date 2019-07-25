@@ -2,6 +2,7 @@ body{
 background-color: #387975;
 width: auto;
 font-family: 'Darker Grotesque', sans-serif;
+border-radius: 25px;
 }
 /* MAIN MENU STUFF */
 .container {
@@ -167,5 +168,6 @@ a:hover{
   width; 50px;
   align-items: center;
 }
+
 
 /* FORM STUFF */

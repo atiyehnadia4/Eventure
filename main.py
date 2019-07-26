@@ -69,7 +69,7 @@ class MapHandler(webapp2.RequestHandler):
 class ApiHandler(webapp2.RequestHandler):
     def get(self):
         res = ""
-        url = 'https://www.eventbriteapi.com/v3/events/search?location.address=seattle&location.within=10km&expand=venue&token=OUVFOFRWDHQHSAPTJX5O'
+        url = 'https://www.eventbriteapi.com/v3/events/search?location.address="' + (self.request.get("address"))+'"&location.within='+ self.request.get('radius') +'km&expand=venue&token=OUVFOFRWDHQHSAPTJX5O'
         req = urllib2.Request(url, {}, {'Content-Type': 'application/json'})
         f = urllib2.urlopen(req)
         for x in f:

@@ -239,7 +239,7 @@ function initMap() {
             }
         });
 
-      $.get("/api", function(response) {
+      $.get("/api?address=" + ($('#address').val()) + "&radius=" + ($('#radius').val()), function(response) {
         let json = JSON.parse(response);
         console.log(json);
         for (var idx in json.events) {

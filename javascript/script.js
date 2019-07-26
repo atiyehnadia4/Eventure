@@ -103,6 +103,8 @@ function initMap() {
         placeService = new google.maps.places.PlacesService(map);
 
 
+
+
         marker1 = new google.maps.Marker({
           position: center,
           map: map,
@@ -165,7 +167,6 @@ function initMap() {
           }
         });
       });
-
   });
 
   //When find addres is clicked, change marker and center position on map
@@ -227,6 +228,7 @@ function initMap() {
   });
 
 
+
 }
 
 function clearMarkers() {
@@ -265,7 +267,7 @@ function placeMarker(position, place) {
       }
 
       $('#currPos').empty();
-      $("#currPos").append("<h2 >" + place.name + "</h2>");
+      $("#currPos").append("<h2>" + place.name + "</h2>");
   });
 
   markerList.push(marker);

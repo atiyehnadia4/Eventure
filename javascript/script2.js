@@ -14,5 +14,6 @@ function closeNav (){
   document.getElementById("main").style.marginLeft = "0";
 
 }
-
+//https://www.eventbriteapi.com/v3/events/search?location.address=vancovuer&location.within=10km&expand=venue
+//-H 'Authorization: Bearer PERSONAL_OAUTH_TOKEN'
 // user.html JAVASCRIPT

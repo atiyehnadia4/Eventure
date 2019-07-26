@@ -222,6 +222,10 @@ a:hover{
 #map{
   border-radius: 25px;
 }
+#destination{
+  border-radius: 10px;
+  padding: 5px;
+}
 #address{
   border-radius: 10px;
   padding: 5px;

@@ -42,8 +42,7 @@ function calcDist(p1, p2) {
   return parseInt(dist);
 }
 
-function degToRad(degrees)
-{
+function degToRad(degrees){
   var pi = Math.PI;
   return degrees * (pi/180);
 }
@@ -89,6 +88,20 @@ function getLatLng(address, result_index = 0) {
 //initialize the map with a position on page load
 function initMap() {
   geocoder = new google.maps.Geocoder();
+
+  // $.ajax({
+  //   url: "https://www.eventbriteapi.com/v3/users/me?token=OUVFOFRWDHQHSAPTJX5O",//"&location.address=seattle&location.within=10km&expand=venue",
+  //   method: "get",
+  //   dataType: "jsonp",
+  //   success: function(data) {
+  //     console.log(data);
+  //   },
+  //   error: function(data) {
+  //     console.log(data);
+  //   },
+  // });
+
+
 
   //Initializing map on first run
   geocoder.geocode({'address': "2100 Whitman Ln Seattle"}, function(results, status) {
@@ -197,7 +210,7 @@ function initMap() {
           location: marker1.getPosition(),
           radius: distance,
           query: filter,
-          type: filter
+          //type: filter
         };
 
         searcharea.setMap(map);
@@ -225,6 +238,19 @@ function initMap() {
               //console.log(destinations[5].name);
             }
         });
+
+      $.get("/api", function(response) {
+        //console.log(response);
+        let json = JSON.parse(response);
+        console.log(json);
+        for (var loc in json.events) {
+          if (json.events.hasOwnProperty(loc)) {
+            console.log(json.events[loc].name);
+            let temp = json.events[loc];
+            placeMarker({ 'lat': parseFloat(temp.venue.latitude), 'lng': parseFloat(temp.venue.longitude)}, temp);
+          }
+        }
+      });
   });
 
 
@@ -282,8 +308,7 @@ function scanSetup(LatLng, radius) {
 
 
 
-function reverseGeocode(latlng) {
-
+function scanClick() {
 
 }
 

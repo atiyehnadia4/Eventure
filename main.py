@@ -1,5 +1,6 @@
 import webapp2
 import jinja2
+import urllib2
 import os
 import json
 from google.appengine.api import users
@@ -65,6 +66,18 @@ class MapHandler(webapp2.RequestHandler):
         map_template = the_jinja_env.get_template("template/map.html")
         self.response.write(map_template.render())
 
+class ApiHandler(webapp2.RequestHandler):
+    def get(self):
+        res = ""
+        url = 'https://www.eventbriteapi.com/v3/events/search?location.address=seattle&location.within=10km&expand=venue&token=OUVFOFRWDHQHSAPTJX5O'
+        req = urllib2.Request(url, {}, {'Content-Type': 'application/json'})
+        f = urllib2.urlopen(req)
+        for x in f:
+            res += x
+        f.close()
+        self.response.write(res)
+
+
 app = webapp2.WSGIApplication([
     ("/", MainHandler),
     ("/login", LoginHandler),
@@ -72,4 +85,5 @@ app = webapp2.WSGIApplication([
     ("/events",EventsHandler),
     ("/calendar", CalendarHandler),
     ("/map", MapHandler),
+    ("/api", ApiHandler),
 ], debug=True)

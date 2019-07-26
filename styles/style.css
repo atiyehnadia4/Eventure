@@ -4,6 +4,14 @@ width: auto;
 font-family: 'Darker Grotesque', sans-serif;
 border-radius: 25px;
 }
+.header1{
+  font-family: 'Darker Grotesque', sans-serif;
+}
+
+.header3{
+  font-family: 'Darker Grotesque', sans-serif;
+}
+
 /* MAIN MENU STUFF */
 .container {
   position: fixed;
@@ -69,6 +77,7 @@ border-radius: 25px;
   .sidenav a {font-size: 18px;}
 }
 /* Menu STUFF */
+
 /* Logo STUFF */
 .logo{
   max-width: 60%;
@@ -82,13 +91,8 @@ border-radius: 25px;
   margin-bottom: 80px;
 }
 
-.logo2{
-  display: block;
-  align-items: flex-start;
-}
+
 /* Logo STUFF  */
-
-
 
 .main-header{
   background-color: #E5C6C9;
@@ -96,6 +100,36 @@ border-radius: 25px;
   font-family: 'Darker Grotesque', sans-serif;
    border-radius: 25px;
   font-size: 40pt;
+  box-shadow: 5px 10px #F2A2D4;
+}
+
+.second-header{
+  background-color: #518082;
+  text-align: center;
+  padding-right: auto;
+  font-family: 'Darker Grotesque', sans-serif;
+  border-radius: 25px;
+  font-size: 20pt;
+  box-shadow: 5px 15px #3F6069;
+
+}
+.third-header{
+  background-color: #D8E6E8;
+  text-align: left;
+  padding-left: 40px;
+  font-family: 'Darker Grotesque', sans-serif;
+  border-radius: 25px;
+  font-size: 20pt;
+  box-shadow: 5px 15px #B5C2C7;
+
+}
+.fourth-header{
+  text-align: center;
+  font-family: 'Darker Grotesque', sans-serif;
+  border-radius: 25px;
+  font-size: 40pt;
+  box-shadow: 5px 15px #274247;
+
 }
 a{
   text-decoration: none;
@@ -104,6 +138,7 @@ a:hover{
   color: white;
   font-weight: bold;
 }
+
 /* FORM STUFF */
 
 .speaker-form-header {
@@ -117,7 +152,6 @@ a:hover{
   padding: 50px;
   font-family: 'Darker Grotesque', sans-serif;
   box-shadow: 5px 10px #F2A2D4 ;
-
 
 }
 
@@ -173,14 +207,15 @@ a:hover{
   width; 50px;
   align-items: center;
 }
+/* FORM STUFF */
+
+
 .eventurer{
-  position: absolute;
+  height: 400px;
   left: 0;
   float: left;
-  margin-left: 80px;
+  margin-left: 90px;
   margin-right: 70px;
   margin-bottom: 60px;
-  padding-right: 200px;
+  padding-right: 150px;
 }
-
-/* FORM STUFF */

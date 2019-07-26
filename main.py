@@ -3,13 +3,21 @@ import jinja2
 import os
 import json
 from google.appengine.api import users
-# from google.appengine.api import ndb
+from google.appengine.ext import ndb
+
 
 
 the_jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
+
+class Filters(ndb.Model):
+    destination = ndb.StringProperty (required =True)
+    filter = ndb.StringProperty (required = True)
+    radius = ndb.FloatProperty (required = True)
+
+class 
 
 
 class MainHandler(webapp2.RequestHandler):
@@ -41,15 +49,19 @@ class UserManagementHandler(webapp2.RequestHandler):
     def post(self):
         pass
 
-class ParameterHandler(webapp2.RequestHandler):
-    def get(self):
-        parameter_template = the_jinja_env.get_template("template/parameters.html")
-        self.response.write(parameter_template.render())
-
 class EventsHandler(webapp2.RequestHandler):
     def get(self):
         events_template = the_jinja_env.get_template("template/events.html")
         self.response.write(events_template.render())
+
+    def post(self):
+        destination = self.request.get("destination")
+        filter = self.request.get("filter")
+        radius = self.request.get("radius")
+        filter= Filters(destination = destination, filter = filter, radius = float(radius))
+        print filter
+        print filter.put()
+
 
 class CalendarHandler(webapp2.RequestHandler):
     def get(self):
@@ -62,11 +74,21 @@ class MapHandler(webapp2.RequestHandler):
         self.response.write(map_template.render())
 
 
+# class Destination(ndb.Model):
+#     destination = ndb.StringProperty (required = true)
+#
+# class Filter(ndb.Model):
+#     filter = ndb.StringProperty (required = true)
+#
+# class Radius (ndb.Model):
+#     radius =ndb.FloatProperty (required = true)
+
+
+
 app = webapp2.WSGIApplication([
     ("/", MainHandler),
     ("/login", LoginHandler),
     ("/usermanagement", UserManagementHandler),
-    ("/parameters", ParameterHandler),
     ("/events",EventsHandler),
     ("/calendar", CalendarHandler),
     ("/map", MapHandler),

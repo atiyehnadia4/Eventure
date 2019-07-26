@@ -96,13 +96,13 @@ border-radius: 25px;
 .logoHeaders{
   max-width: 40%;
   height: 300px;
+  display:flex;
   align-self: stretch;
   border-radius: 200px;
   margin-top: 50px;
   display: block;
-  float: right;
-  position: fixed;
-  margin-right: 0;
+  margin: auto;
+  margin-bottom: 0;
 }
 
 

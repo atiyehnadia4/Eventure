@@ -90,6 +90,17 @@ border-radius: 25px;
   margin: auto;
   margin-bottom: 80px;
 }
+.logoHeaders{
+  max-width: 40%;
+  height: 300px;
+  align-self: stretch;
+  border-radius: 200px;
+  margin-top: 50px;
+  display: block;
+  float: right;
+  position: fixed;
+  margin-right: 0;
+}
 
 
 /* Logo STUFF  */

@@ -240,14 +240,18 @@ function initMap() {
         });
 
       $.get("/api", function(response) {
-        //console.log(response);
         let json = JSON.parse(response);
         console.log(json);
-        for (var loc in json.events) {
-          if (json.events.hasOwnProperty(loc)) {
-            console.log(json.events[loc].name);
-            let temp = json.events[loc];
-            placeMarker({ 'lat': parseFloat(temp.venue.latitude), 'lng': parseFloat(temp.venue.longitude)}, temp);
+        for (var idx in json.events) {
+          if (json.events.hasOwnProperty(idx)) {
+            let temp = json.events[idx];
+
+            let latlng = {
+              'lat': parseFloat(temp.venue.latitude),
+              'lng': parseFloat(temp.venue.longitude)
+            };
+
+            placeMarker(latlng, temp);
           }
         }
       });

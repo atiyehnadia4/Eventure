@@ -93,6 +93,17 @@ border-radius: 25px;
   margin: auto;
   margin-bottom: 80px;
 }
+.logoHeaders{
+  max-width: 40%;
+  height: 300px;
+  display:flex;
+  align-self: stretch;
+  border-radius: 200px;
+  margin-top: 50px;
+  display: block;
+  margin: auto;
+  margin-bottom: 0;
+}
 
 
 /* Logo STUFF  */

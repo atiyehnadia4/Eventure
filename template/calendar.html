@@ -28,19 +28,26 @@
       <br>
 
       <div id="main">
-        <div class="form-row">
+        <header>
+          <img src= "../images/eventureTravels.png" alt="Eventure Travel" class="logoHeaders">
+          </header>
 
-        <img src= "../images/eventureTravels.png" alt="Eventure Travel" class="logoHeaders">
+        <div id="container" class="container-two">
 
-    <p>Google Calendar API Quickstart</p>
+
+    <p style= "font-size: 30px; ">Calendar of Events!</p>
 
     <!--Add buttons to initiate auth sequence and sign out-->
-    <button id="authorize_button" style="display: none;">Authorize</button>
-    <button id="signout_button" style="display: none;">Sign Out</button>
+    <div class="calbutton">
+    <button id="authorize_button">Authorize</button>
+    <button id="signout_button">Sign Out</button>
+    </div>
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
-    <script type="text/javascript">
+
+
+    <script type="text/javascript" class="calfont">
       // Client ID and API key from the Developer Console
       var CLIENT_ID = '735456919744-ra7os68mtpp2vq9e0juh19bl9g9hsroo.apps.googleusercontent.com';
       var API_KEY = 'AIzaSyD87mvgtY2xe35hCOLfVuJItoHASMy0kQg';
@@ -164,8 +171,10 @@
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
+
   </div>
   </div>
+
 
 
   </body>

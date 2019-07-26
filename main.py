@@ -37,7 +37,6 @@ class UserManagementHandler(webapp2.RequestHandler):
         user_template = the_jinja_env.get_template("template/user.html")
         self.response.write(user_template.render())
 
-        # Destination
 
     def post(self):
         pass

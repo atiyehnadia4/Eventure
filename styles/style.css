@@ -15,6 +15,28 @@ border-radius: 25px;
 #map{
     box-shadow: 5px 20px #265E5E;
 }
+.container-two{
+  background-color: #E5C6C9;
+  border-radius: 25px;
+  font-family: 'Darker Grotesque', sans-serif;
+  box-shadow: 5px 10px #F2A2D4;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+
+.calbutton{
+  display: flex;
+ align-items: center;
+ justify-content: center;
+
+
+}
+
+.calfont{
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 25px;
+}
 /* MAIN MENU STUFF */
 .container {
   position: fixed;

@@ -77,6 +77,13 @@ class ApiHandler(webapp2.RequestHandler):
         f.close()
         self.response.write(res)
 
+class LogoutHandler(webapp2.RequestHandler):
+    def get(self):
+        logout_url= users.create_logout_url("/")
+        user = users.get_current_user()
+        self.redirect(logout_url)
+    def post(self):
+        pass
 
 app = webapp2.WSGIApplication([
     ("/", MainHandler),
@@ -86,4 +93,5 @@ app = webapp2.WSGIApplication([
     ("/calendar", CalendarHandler),
     ("/map", MapHandler),
     ("/api", ApiHandler),
+    ("/logout", LogoutHandler),
 ], debug=True)

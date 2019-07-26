@@ -219,3 +219,33 @@ a:hover{
   margin-bottom: 60px;
   padding-right: 150px;
 }
+#map{
+  border-radius: 25px;
+}
+#address{
+  border-radius: 10px;
+  padding: 5px;
+}
+#filter{
+  border-radius: 10px;
+  padding: 5px;
+}
+#radius{
+  border-radius: 10px;
+  padding: 5px;
+}
+#find{
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  background-color: aliceBlue;
+}
+#scan{
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  background-color: aliceBlue;
+}
+#fixRad{
+
+}

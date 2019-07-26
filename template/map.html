@@ -45,17 +45,19 @@
         <br><br>
     <div id="map" style="height: 800px; width=100%;"></div>
     <br>
+    <form action= '/events' method='get' class ='speaker-form'>
+      <div class="form-row">
 
-
-    <input type="text" id="address" placeholder="Type an address">
-    <input type="text" id="filter" placeholder="Search Filter">
+    <input type="text" id="address" placeholder="Type an address"><br>
+    <input type="text" id="filter" placeholder="Search Filter"><br>
     <input type="number" id="radius" value="40">
     <br><br>
     <button id="find">Go to address</button>
     <button id="scan">Search radius</button>
     <br>
     <input type="checkbox" id="fixRad">Is the google filter dumb?</input>
-
+  </div>
+</form>
     <div id='search_results'>
     </div>
 

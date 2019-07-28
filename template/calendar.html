@@ -28,7 +28,7 @@
       </div>
       <br>
 
-      <div id="main">
+      <div id="main" style= "font-size: 30px; margin: auto;">
         <header>
           <img src= "../images/eventureTravels.png" alt="Eventure Travel" class="logoHeaders">
           </header>
@@ -36,7 +36,7 @@
         <div id="container" class="container-two">
 
 
-    <p style= "font-size: 30px; ">Calendar of Events!</p>
+    <p style= "font-size: 50px; ">Calendar of Events!</p>
 
     <!--Add buttons to initiate auth sequence and sign out-->
     <div class="calbutton">
@@ -48,7 +48,7 @@
 
 
 
-    <script type="text/javascript">
+    <script>
       // Client ID and API key from the Developer Console
       var CLIENT_ID = '735456919744-ra7os68mtpp2vq9e0juh19bl9g9hsroo.apps.googleusercontent.com';
       var API_KEY = 'AIzaSyD87mvgtY2xe35hCOLfVuJItoHASMy0kQg';
@@ -139,6 +139,7 @@
        * the authorized user's calendar. If no events are found an
        * appropriate message is printed.
        */
+
       function listUpcomingEvents() {
         gapi.client.calendar.events.list({
           'calendarId': 'primary',
@@ -166,14 +167,22 @@
         });
       }
 
+
     </script>
+
 
     <script async defer src="https://apis.google.com/js/api.js"
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
+    <form action= '/map' method='put'>
+    <div>
+    <button type='submit' id="">Find Resturants Nearby!</button>
+   </div>
+ </form>
 
   </div>
+
   </div>
 
 

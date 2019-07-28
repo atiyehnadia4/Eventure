@@ -45,36 +45,41 @@
         <img src= "../images/eventureTravels.png" alt="Eventure Travel" class="logoHeaders">
 
         <br><br>
-    <div id="map"  style="height: 800px; width=100%;"></div>
+
+        <div class ='speaker-form'>
+          <div class="form-row">
+            <h1 style= "text-align: center; font-family: 'Darker Grotesque', sans-serif; font-size: 45px;"> To Find Nearby Resturants Look Here! </h1>
+        <input type="text" id="address" placeholder="Type an address"><br>
+        <input type="text" id="filter" placeholder="Search Filter"><br>
+        <input type="number" id="radius" placeholder="Input Value in km">
+          <p style= "text-align: center; font-size: 30px;" > 1 km = .621 miles </p>
+
+        <button id="find">Go to address</button>
+        <button id="scan">Search radius</button>
+        <br>
+        <div>
+        <input type="checkbox" id="fixRad">
+        Toggle Google Filter
+      </input>
+      </div>
+      </div>
+    </div>
     <br><br>
+
+    <div id="map"  style="height: 800px; width=100%;"></div>
+  <br><br>
+
 
     <div class ='speaker-form'>
-      <div class="form-row">
-        <h1 style= "text-align: center; font-family: 'Darker Grotesque', sans-serif;"> To Find Nearby Resturants Look Here! </h1>
-    <input type="text" id="address" placeholder="Type an address"><br>
-    <input type="text" id="filter" placeholder="Search Filter"><br>
-    <input type="number" id="radius" placeholder="Input Value in km">
-    <br><br>
-    <button id="find">Go to address</button>
-    <button id="scan">Search radius</button>
-    <br>
-    <input type="checkbox" id="fixRad">Toggle Google Filter</input>
+      <div class="form-row" style= "text-align: center; font-family: 'Darker Grotesque', sans-serif; font-size: 45px;">
+        <p> Results: <p>
+    <div id='search_results' style= "text-align: center; font-family: 'Darker Grotesque', sans-serif; font-size: 45px;">
+    </div>
+    <div id="currPos" style= "text-align: center; font-family: 'Darker Grotesque', sans-serif; font-size: 45px;"></div>
   </div>
 </div>
-    <div id='search_results'>
-    </div>
-
-    <div id="currPos">
 
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-
-    </div>
   </div>
   </body>
 </html>

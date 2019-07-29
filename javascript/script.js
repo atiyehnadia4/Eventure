@@ -10,7 +10,7 @@ var pano;
 
 var temp = 0;
 
-let api_key = "AIzaSyD87mvgtY2xe35hCOLfVuJItoHASMy0kQg";
+let api_key = "AIzaSyAtJor4eSuw3Wt8fLLYCfRrdK_AvAaQxHs";
 
 
 
@@ -239,22 +239,6 @@ function initMap() {
             }
         });
 
-      $.get("/api?address=" + ($('#address').val()) + "&radius=" + ($('#radius').val()), function(response) {
-        let json = JSON.parse(response);
-        console.log(json);
-        for (var idx in json.events) {
-          if (json.events.hasOwnProperty(idx)) {
-            let temp = json.events[idx];
-
-            let latlng = {
-              'lat': parseFloat(temp.venue.latitude),
-              'lng': parseFloat(temp.venue.longitude)
-            };
-
-            placeMarker(latlng, temp);
-          }
-        }
-      });
   });
 
 
@@ -297,7 +281,7 @@ function placeMarker(position, place) {
       }
 
       $('#currPos').empty();
-      $("#currPos").append("<h2>" + place.name + "</h2>");
+      $("#currPos").append("<h2>" + place.name + "</h2><h3>"+place.address+"</h3>");
   });
 
   markerList.push(marker);

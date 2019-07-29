@@ -33,6 +33,12 @@ border-radius: 25px;
 
 }
 
+.resultsdiv{
+  text-align: center;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 45px;
+}
+
 .calfont{
   font-family: 'Darker Grotesque', sans-serif;
   font-size: 25px;

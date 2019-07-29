@@ -26,15 +26,7 @@ function eBrite(city, radius) {
       if (json.events.hasOwnProperty(idx)) {
         let temp = json.events[idx];
 
-        let latlng = {
-          'lat': parseFloat(temp.venue.latitude),
-          'lng': parseFloat(temp.venue.longitude)
-        };
-
         $("#results").append("<li><a href='" + temp.url + "' target='blank'>" + temp.name.text + "</a></li>");
-        //$("#results").append("<br>");
-
-        //placeMarker(latlng, temp);
       }
       $("#results").append("</ul>")
     }

@@ -17,7 +17,9 @@ function closeNav (){
 //https://www.eventbriteapi.com/v3/events/search?location.address=vancovuer&location.within=10km&expand=venue
 //-H 'Authorization: Bearer PERSONAL_OAUTH_TOKEN'
 // user.html JAVASCRIPT
-function eBrite(city, radius) {
+function eBrite(city1, radius) {
+  city = city1.replace(" ", "").replace(" ", "");
+  console.log(city);
   $.get('/api?address=' + city + '&radius=' + radius + "", function(response) {
     let json = JSON.parse(response);
     console.log(json);

@@ -164,7 +164,7 @@ function initMap() {
             console.log(revResults[0].formatted_address);
             var search = {
                 location: revResults[0].geometry.location,
-                radius: 100000,
+                radius: 10000, //10km
                 query: revResults[0].formatted_address,
                 type: revResults[0].formatted_address
               };

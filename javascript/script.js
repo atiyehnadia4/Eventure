@@ -10,7 +10,7 @@ var pano;
 
 var temp = 0;
 
-let api_key = "AIzaSyAtJor4eSuw3Wt8fLLYCfRrdK_AvAaQxHs";
+let api_key = "AIzaSyD87mvgtY2xe35hCOLfVuJItoHASMy0kQg";
 
 
 

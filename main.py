@@ -45,16 +45,34 @@ class UserManagementHandler(webapp2.RequestHandler):
 
 class EventsHandler(webapp2.RequestHandler):
     def get(self):
+        destination = self.request.get("destination")
+        filters = self.request.get("filter")
+        radius = self.request.get("radius")
+
+        dict = {
+            'city': destination,
+            'filter': filters,
+            'radius': radius,
+        }
+
         events_template = the_jinja_env.get_template("template/events.html")
-        self.response.write(events_template.render())
+        self.response.write(events_template.render(dict))
 
     def post(self):
         destination = self.request.get("destination")
-        filter = self.request.get("filter")
+        filters = self.request.get("filter")
         radius = self.request.get("radius")
-        filter= Filters(destination = destination, filter = filter, radius = float(radius))
+        filter = Filters(destination = destination, filter = filters, radius = float(radius))
         print filter
         print filter.put()
+
+        events_template = the_jinja_env.get_template("template/events.html")
+        dict = {
+            'city': destination,
+            'filter': filters,
+            'radius': radius,
+        }
+        self.response.write(events_template.render(dict))
 
 class CalendarHandler(webapp2.RequestHandler):
     def get(self):

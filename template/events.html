@@ -7,8 +7,33 @@
     <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap" rel="stylesheet">
 
     <link href="/styles/style.css" rel="stylesheet">
+    <style media="screen">
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        padding: 5px 10px;
+        background-color: tan;
+        border: 1px solid #DDDDDD;
+        border-radius: 5px;
+        width: 100%;
+      }
+      a:hover {
+        color: lightpink;
+      }
+      a {
+        font-size: 30px;
+        color: teal;
+      }
+
+      #results {
+        margin: auto;
+        align-items: center;
+      }
+    </style>
   </head>
-  <body>
+  <body onload="eBrite('{{city}}', '{{radius}}')">
     <br>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -26,8 +51,21 @@
         <div class="bar2"></div>
         <div class="bar3"></div>
       </div>
+    </span>
 
       <img src= "../images/eventureTravels.png" alt="Eventure Travel" class="logoHeaders">
+
+      <div id=main>
+      <div>
+        <div class ='speaker-form'>
+          <div id="results" class="form-row" >
+          <p>{{radius}}</p>
+          <p>{{filter}}</p>
+          <p>{{destination}}</p>
+        </div>
+      </div>
+      </div>
+    </div>
 
   </body>
 </html>

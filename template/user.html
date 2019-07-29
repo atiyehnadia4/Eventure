@@ -9,7 +9,7 @@
 
     <link href="/styles/style.css" rel="stylesheet">
   </head>
-  <body>
+  <body onload="getCategories()">
     <section>
       <br>
     <div id="mySidenav" class="sidenav">
@@ -45,8 +45,11 @@
             <label for= "Destination" > Destination: <br></label>
             <input id='destination' name='destination' placeholder="Enter your Destination" type='text'required/>
             <br>
-            <label for="Filter"> What do you want to do! <br></label>
-            <input id='filter' name='filter' placeholder= "Enter what you want to do" type="text" required/>
+            <!-- <label for="Filter"> What do you want to do! <br></label> -->
+            <!-- <input id='filter' name='filter' placeholder= "Enter what you want to do" type="text" required/> -->
+            <select id="filter">
+
+            </select>
             <br>
             <div class="buttonandradius">
               <label for="Radius"> Radius: <br></label>
